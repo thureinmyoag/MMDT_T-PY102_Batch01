@@ -121,8 +121,12 @@ jobs:
 
       - name: Commit and push gradebook
         run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add autograder/gradebook.csv
-          git commit -m "Weekly gradebook update" || exit 0
-          git push
+            git config user.name "github-actions"
+            git config user.email "actions@github.com"
+            if [-f autograder/gradebook.csv]; then
+                git add autograder/gradebook.csv
+                git commit -m "Weekly gradebook update" || exit 0
+                git push
+            else
+                echo "No gradebook file created. Nothing to commit"
+            fi
