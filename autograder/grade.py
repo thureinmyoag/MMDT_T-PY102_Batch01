@@ -19,7 +19,7 @@ RESULTS_FILE = None
 
 # Student IDs: PY102001001 .. PY102001020
 ID_PREFIX = "PY102001"
-MIN_ID = 1
+MIN_ID = 0
 MAX_ID = 44
 
 # Allowed lab filenames
